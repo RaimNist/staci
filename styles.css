@@ -1,0 +1,346 @@
+.november-wrapper, .november-wrapper * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default !important;
+}
+.section-1, .section-2, .section-4, .section-5, .section-6 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section-1 *, .section-2 *, .section-4 *, .section-5 *, .section-6 * {
+  cursor: default !important;
+}
+:root {
+  --bg-color: #FFF;
+  --bg-secondary-color: #EAE6DF;
+  --primary-color: #D72638;
+  --secondary-color: #f5f5f5;
+  --accent-color: #E5395A;
+  --text-color: #1A1A1A;
+  --bg-dark-color: #1C1C1F;
+  --bg-dark-anim-color: #242428;
+  --text-light-color: #FFFFFF;
+  --final-bg-color: #ffe8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
+  color: var(--text-color);
+  background-color: var(--bg-secondary-color);
+}
+
+/* Snap scrolling so viewport pauses on each section */
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  /* snap only when near the snap point to avoid hard jumps */
+  scroll-snap-type: y proximity;
+}
+
+section:not(.november-wrapper) {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.text, .subtitle, span {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.title {
+  font-size: clamp(48px, 8vw, 120px);
+  margin-bottom: 30px;
+  font-family: 'Cormorant';
+  font-weight: bold;
+  text-align: center;
+}
+
+.text {
+  font-size: 40px;
+  line-height: 1.6;
+}
+
+.november-wrapper {
+  height: 300vh;
+  background: #1b1b1e;
+  position: relative;
+}
+
+.november-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
+  color: white;
+}
+
+.november-big {
+  font-size: clamp(72px, 12vw, 160px);
+  margin-bottom: 40px;
+  font-family: 'Cormorant';
+  font-weight: bold;
+  text-align: center;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.november-content {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.2s linear;
+  display: flex;
+  flex-direction: column;
+}
+
+.november-content span {
+  font-size: 24px;
+  color: var(--primary-color);
+  text-align: left;
+  align-self: center;
+  margin: -10px 0 -20px;
+}
+
+
+.section-1, .section-4 {
+  background: var(--bg-color);
+  background: linear-gradient(180deg, 
+    var(--bg-color) 0%, 
+    var(--bg-secondary-color) 100%);
+}
+
+.title {
+  margin-bottom: 120px;
+}
+
+.section-1 span, .section-4 span {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-top: 40px;
+  text-align: right;
+  align-self: end;
+}
+
+.section-2 {
+  background: var(--bg-secondary-color);
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+
+/* tighter spacing for side column lines in section-2 */
+.section-2 div p.text {
+  margin-top: 8px;
+  line-height: 1.45;
+}
+
+/* bottom caption styling */
+.section-2 > span {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-top: 12px;
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+  padding-bottom: 40px;
+  text-align: left;
+}
+
+.section-2 .text {
+  font-size: 26px;
+  align-self: center;
+}
+
+.section-2 > div:first-of-type {
+  text-align: start;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+.section-2 > div:last-of-type {
+  text-align: end;
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.section-2 > .text {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  font-size: 32px;
+  text-align: center;
+}
+
+.section-2 span {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+  padding-bottom: 60px;
+  text-align: left;
+  align-self: end;
+}
+
+.section-4 span {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-top: 40px;
+  text-align: center;
+  align-self: center;
+}
+
+.section-5 {
+  background: var(--bg-color);
+  background: linear-gradient(180deg, 
+    var(--bg-secondary-color) 0%, 
+    var(--final-bg-color) 100%);
+}
+
+.section-6 {
+  background: var(--final-bg-color);
+}
+
+/* ===== ФИНАЛЬНАЯ СЕКЦИЯ ===== */
+
+.section-6 {
+  background: var(--final-bg-color);
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.final-question {
+  font-size: clamp(40px, 5vw, 72px);
+  font-family: 'Cormorant';
+  margin-bottom: 60px;
+}
+
+.buttons {
+  display: flex;
+  gap: 40px;
+}
+
+.button-yes,
+.button-no {
+  padding: 18px 48px;
+  font-size: 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  border: none;
+  font-family: 'Manrope';
+}
+
+.button-yes {
+  background: var(--accent-color);
+  color: white;
+}
+
+.button-yes:hover {
+  transform: scale(1.05);
+}
+
+.button-no {
+  background: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  position: absolute;
+  left: 60%;
+  top: 60%;
+  transition: left 0.15s ease, top 0.15s ease;
+  cursor: default !important;
+}
+
+.button-no:hover {
+  opacity: 0.6;
+}
+
+.section-6 {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--final-bg-color);
+}
+
+.button-yes,
+.button-no {
+  position: absolute;
+  padding: 1.2rem 3rem;
+  font-size: clamp(16px, 2vw, 22px);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Manrope';
+  transition: transform 0.2s ease, left 0.15s ease, top 0.15s ease;
+  transform-origin: center center; /* вот это важно */
+}
+
+.button-yes {
+  background: var(--accent-color);
+  color: white;
+  left: 35%;
+  top: 60%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.button-no {
+  background: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  left: 65%;
+  top: 60%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===== ЭКРАН ПОСЛЕ СОГЛАСИЯ ===== */
+
+.final-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.8s ease;
+  z-index: 1000;
+}
+
+.final-screen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.final-content h2 {
+  font-size: clamp(48px, 6vw, 96px);
+  font-family: 'Cormorant';
+  margin-bottom: 30px;
+}
+
+.final-content p {
+  font-size: 28px;
+}
